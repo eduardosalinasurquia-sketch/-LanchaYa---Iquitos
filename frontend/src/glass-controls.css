@@ -1,0 +1,50 @@
+/* Prueba liquid glass de controles; retirar este import para volver al estilo sólido. */
+.filtros, .listado-cabecera, .estado, .form-dialog {
+  background: linear-gradient(135deg, #ffffffd9, #edf6e6ad 55%, #ffffffc9);
+  border: 1px solid #ffffffd9;
+  -webkit-backdrop-filter: blur(18px) saturate(125%);
+  backdrop-filter: blur(18px) saturate(125%);
+  box-shadow: inset 0 1px 0 #fffffff2, inset 0 -1px 0 #ffffff66, 0 8px 24px #05271f26;
+  border-radius: 16px;
+}
+.filtros input, .filtros select, .form-grid input, .form-grid select, textarea {
+  background: linear-gradient(135deg, #ffffffe0, #f0f7e8b8);
+  border: 1px solid #517662;
+  border-radius: 11px;
+  color: #12382c;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 2px #fff, 0 2px 7px #123f3214;
+}
+select option { background: #f4f8ee; color: #173b32; }
+button {
+  background: linear-gradient(135deg, #245d48eb, #123f32ed 65%, #367351e6);
+  border: 1px solid #a7c8a2;
+  border-radius: 12px;
+  color: #fff;
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+  box-shadow: inset 0 1px 0 #ffffff66, inset 0 -1px 0 #082d2866, 0 4px 12px #06281f26;
+}
+button:hover { background: linear-gradient(135deg, #367857f2, #194e3eed); border-color: #cee3b7; }
+button.registrar-solido { background: #123f32; color: #fff; border-color: #a7c8a2; backdrop-filter: none; -webkit-backdrop-filter: none; }
+button.registrar-solido:hover { background: #245d48; }
+button.secundario {
+  background: linear-gradient(135deg, #ffffffe0, #e6f0d4b8);
+  border-color: #587960;
+  color: #123f32;
+}
+button.secundario:hover { background: linear-gradient(135deg, #fff, #d7e9bbeb); }
+button.peligro { background: linear-gradient(135deg, #a3543deb, #733423f2); border-color: #d8a08b; }
+button.peligro:hover { background: linear-gradient(135deg, #b86649f2, #873c29f2); }
+button:disabled { background: #dce5d6db; color: #4c6255; box-shadow: none; border-color: #94a88e; }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #83a832;
+  outline-offset: 3px;
+}
+.estado.error { background: linear-gradient(135deg, #fff5ecef, #ffe6d7d9); border-color: #ab583b; color: #70301e; }
+.form-dialog { background: linear-gradient(135deg, #fffffff2, #f1f8e8e6); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .filtros, .listado-cabecera, .estado, .form-dialog { background: #f4f8ee; }
+  .filtros input, .filtros select, .form-grid input, .form-grid select, textarea { background: #fff; }
+}

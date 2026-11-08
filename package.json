@@ -1,0 +1,10 @@
+{
+  "name": "lanchaya",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev.cjs",
+    "build": "npm --prefix frontend run build",
+    "test": "npm --prefix backend test",
+    "start": "node scripts/start.cjs"
+  }
+}

@@ -1,0 +1,42 @@
+/* Prueba temporal: quitar el import de main.jsx para volver al diseño anterior. */
+section[aria-labelledby='listado-titulo'] {
+  background: rgba(239, 247, 236, .32);
+  border: 1px solid rgba(255, 255, 255, .65);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .75), 0 16px 48px rgba(5, 35, 27, .2);
+}
+.listado-cabecera {
+  background: rgba(248, 250, 243, .9);
+  padding: 14px 18px;
+  border-radius: 12px;
+}
+.salida-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .86), rgba(242, 251, 238, .63) 50%, rgba(255, 255, 255, .78));
+  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  backdrop-filter: blur(18px) saturate(135%);
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: 22px;
+  box-shadow: inset 0 1px 1px #fff, inset 0 -1px 1px rgba(255, 255, 255, .5), 0 10px 28px rgba(5, 35, 27, .2);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.salida-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, .45), transparent 35%, transparent 75%, rgba(255, 255, 255, .18));
+  pointer-events: none;
+}
+.salida-card > * { position: relative; }
+.salida-card .tipo { background: rgba(225, 239, 191, .92); }
+.salida-card .card-bottom { border-color: rgba(41, 82, 62, .25); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .salida-card:hover { transform: translateY(-4px); box-shadow: inset 0 1px 1px #fff, 0 18px 36px rgba(5, 35, 27, .26); }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .salida-card { background: #f4f8ee; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .salida-card { transition: none; }
+}

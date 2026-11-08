@@ -1,0 +1,221 @@
+{
+  "info": {
+    "name": "LanchaYa - Etapa 2",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Ejecutar en orden con el servidor encendido. POST guarda el ID para los pasos siguientes. Cambiar fechaHora si deja de ser futura."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Listar salidas",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/salidas"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(200); });",
+              "pm.test('Respuesta es arreglo', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Listar destinos",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/destinos"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(200); });",
+              "pm.test('Respuesta es arreglo', function () { pm.expect(pm.response.json()).to.be.an('array'); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Filtros combinados",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/salidas?destino=Nauta&fecha=2026-11-09&tipo=rapido"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(200); });",
+              "pm.test('Respuesta es arreglo', function () { pm.expect(pm.response.json()).to.be.an('array'); });",
+              "pm.test('Filtros combinados', function () { const rows=pm.response.json(); pm.expect(rows.length).to.be.above(0); rows.forEach(s => { pm.expect(s.destino).to.eql('Nauta'); pm.expect(s.tipo).to.eql('rapido'); pm.expect(s.fechaHora.slice(0,10)).to.eql('2026-11-09'); }); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Crear salida (201)",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/salidas",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"empresa\": \"Empresa de prueba\",\n  \"embarcacion\": \"Prueba I\",\n  \"tipo\": \"rapido\",\n  \"destino\": \"Nauta\",\n  \"puerto\": \"Puerto Productores\",\n  \"fechaHora\": \"2027-11-09T06:30\",\n  \"duracionHoras\": 2,\n  \"precio\": 20,\n  \"cupos\": 30\n}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Creada', () => pm.response.to.have.status(201));",
+              "if (pm.response.code === 201) pm.collectionVariables.set('id', pm.response.json().id);",
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(201); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Consultar creada (200)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/salidas/{{id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(200); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Editar salida (200)",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/api/salidas/{{id}}",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"empresa\":\"Empresa de prueba\",\"destino\":\"Nauta\",\"puerto\":\"Puerto Productores\",\"fechaHora\":\"2027-11-09T06:30\",\"tipo\":\"rapido\",\"precio\":35}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(200); });",
+              "pm.test('Precio actualizado', function () { pm.expect(pm.response.json().precio).to.eql(35); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Eliminar creada (204)",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/salidas/{{id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(204); });",
+              "pm.test('Sin cuerpo', function () { pm.expect(pm.response.text()).to.eql(''); });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. Consultar eliminada (404)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/salidas/{{id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(404); });",
+              "pm.test('Mensaje de error claro', function () { pm.expect(pm.response.json().mensaje).to.be.a('string').and.not.empty; });"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "9. Registro inválido (400)",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/salidas",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"empresa\":\"Prueba\",\"destino\":\"Nauta\",\"puerto\":\"Puerto Henry\",\"fechaHora\":\"2027-11-09T06:30\",\"tipo\":\"rapido\",\"precio\":0}"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Código HTTP esperado', function () { pm.response.to.have.status(400); });",
+              "pm.test('Mensaje de error claro', function () { pm.expect(pm.response.json().mensaje).to.be.a('string').and.not.empty; });"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

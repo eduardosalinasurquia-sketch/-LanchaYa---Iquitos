@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="160" viewBox="0 0 1920 160" preserveAspectRatio="none">
+ <defs>
+  <linearGradient id="rope" x2="0" y2="1"><stop stop-color="#f0d49a"/><stop offset=".5" stop-color="#b58c52"/><stop offset="1" stop-color="#e2bc7c"/></linearGradient>
+  <linearGradient id="leaf"><stop stop-color="#426f3a"/><stop offset=".6" stop-color="#8fae5f"/><stop offset="1" stop-color="#bed08b"/></linearGradient>
+  <g id="hoja"><path d="M0 0Q-30-42-64-27Q-50 9 0 0Z" fill="url(#leaf)" stroke="#a4bd7b" stroke-width=".8"/><path d="M-3-1-53-24m20 15-5-13m-7 6-6-10" fill="none" stroke="#d2dba3" stroke-width=".7"/></g>
+  <g id="rama" fill="none" stroke="#79985e" stroke-width="2"><path d="M0 0Q-14-45 8-100"/><use href="#hoja" transform="translate(0 -12) scale(.65)"/><use href="#hoja" transform="translate(-3 -35) scale(-.6 .6)"/><use href="#hoja" transform="translate(-1 -58) scale(.5)"/><use href="#hoja" transform="translate(3 -76) scale(-.4 .4)"/></g>
+  <g id="flor"><path d="M0 10Q-35-22-27-35Q-4-29 0-3Q2-42 17-43Q30-15 6 5Q39-17 43-3Q29 18 5 14Z" fill="#c77839" stroke="#edbf75" stroke-width="1.3"/><path d="M0 12Q-12-13-7-24Q5-10 4 9Q17-18 24-16Q25 1 4 14Z" fill="#edc078"/><path d="M2 12v25" stroke="#88a167" stroke-width="3"/></g>
+  <g id="ave"><path d="M-34 16Q-22-28-4-14Q3-6 0 8L-13 26Z" fill="#2d6570" stroke="#91b6a0"/><path d="M-20 0Q-27 20-39 27L-22 24-35 47-13 27Q4 19 0 5Z" fill="#34594b"/><path d="M-6-13Q17-26 34-5L0-3Z" fill="#ddb86a"/><path d="m27-12 7 7-14-2" fill="#bc763d"/><circle cx="-4" cy="-8" r="2" fill="#f6edcf"/><path d="M-15 5Q-20 17-29 22" fill="none" stroke="#9fb784"/></g>
+ </defs>
+ <g opacity=".9">
+  <path d="M-25 112C100 20 184 149 300 104S467 49 590 99 776 146 900 105 1060 63 1190 100 1366 149 1500 105 1750 30 1945 108" fill="none" stroke="#775b35" stroke-width="10"/>
+  <path d="M-25 112C100 20 184 149 300 104S467 49 590 99 776 146 900 105 1060 63 1190 100 1366 149 1500 105 1750 30 1945 108" fill="none" stroke="url(#rope)" stroke-width="7"/>
+  <path d="M-25 112C100 20 184 149 300 104S467 49 590 99 776 146 900 105 1060 63 1190 100 1366 149 1500 105 1750 30 1945 108" fill="none" stroke="#6e5736" stroke-width="3" stroke-dasharray="2 6"/>
+  <g fill="none" stroke="#dfbc82" stroke-width="3"><path d="M258 112c-54-68-67-10-25-8s65-8 69-34c5-35-49-5-44 42l-12 29m12-29 17 26"/><path d="M1540 90c-18-60-69-55-46-22s69 33 86 4c23-40-32-43-40 18l-10 43m10-43 22 34"/></g>
+  <use href="#rama" transform="translate(85 85) rotate(-22)"/><use href="#rama" transform="translate(205 114) rotate(25) scale(.85)"/>
+  <use href="#rama" transform="translate(370 82) rotate(-20) scale(.7)"/><use href="#rama" transform="translate(570 94) rotate(25) scale(.7)"/>
+  <use href="#rama" transform="translate(760 123) rotate(-30) scale(.7)"/><use href="#rama" transform="translate(980 82) rotate(20) scale(.65)"/>
+  <use href="#rama" transform="translate(1180 101) rotate(-20) scale(.8)"/><use href="#rama" transform="translate(1350 123) rotate(25) scale(.9)"/>
+  <use href="#rama" transform="translate(1660 72) rotate(-24) scale(.7)"/><use href="#rama" transform="translate(1835 78) rotate(20)"/>
+  <use href="#flor" transform="translate(155 67) scale(.7)"/><use href="#flor" transform="translate(810 87) rotate(-20) scale(.6)"/><use href="#flor" transform="translate(1430 84) rotate(15) scale(.8)"/><use href="#flor" transform="translate(1770 56) scale(.6)"/>
+  <use href="#ave" transform="translate(325 58) scale(.8)"/><use href="#ave" transform="translate(1120 64) scale(-.7 .7)"/>
+  <path d="M1605 30q-30-30-29-9t26 16q22-28 30-11t-27 12m-1-7v17" fill="#bd9d66" stroke="#e4c78b"/>
+ </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="180" viewBox="0 0 120 180">
+  <title>Patrón geométrico original inspirado en textiles amazónicos</title>
+  <rect width="120" height="180" fill="#123f32"/>
+  <g fill="none" stroke="#e4d7ae" stroke-width="3" stroke-linejoin="miter">
+    <path d="M12 0v180M108 0v180M20 0v180M100 0v180"/>
+    <path d="M60 8 92 40 60 72 28 40Z M60 20 80 40 60 60 40 40Z"/>
+    <path d="M28 80h20v12H36v12h12v12H28v20h20v12H36v12h12v20M92 80H72v12h12v12H72v12h20v20H72v12h12v12H72v20"/>
+    <path d="M60 76v28l12 12-12 12-12-12 12-12M60 128v28l12 12-12 12-12-12 12-12"/>
+  </g>
+  <g fill="#cf8957"><path d="m60 31 9 9-9 9-9-9Z"/><path d="m60 109 7 7-7 7-7-7Z"/><path d="m60 161 7 7-7 7-7-7Z"/></g>
+  <g stroke="#94aa67" stroke-width="2"><path d="M5 0v180M115 0v180"/></g>
+</svg>

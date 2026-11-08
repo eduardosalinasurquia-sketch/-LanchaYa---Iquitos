@@ -1,0 +1,7 @@
+Versión restaurada mediante la herramienta integrada image_gen.
+Original conservado: fondo.webp.
+Resultado: fondo-mejorado.png (1536 x 1024).
+La imagen contiene detalle reconstruido por IA; no es una recuperación exacta del original.
+
+Prompt utilizado:
+Edit target: the supplied aerial Amazon rainforest river photograph. Perform a conservative photographic quality restoration and upscale for a website background, ideally 3000x2000 pixels preserving the original 3:2 composition. Preserve exactly the river bends, shoreline, forest, buildings and small boats, their positions and scale. Improve clarity and fine detail naturally, reduce compression artifacts, retain natural green foliage and realistic water colors. No new objects, no text, no watermark, no dramatic recoloring, no oversharpening, no crop. Save a high quality image file.
