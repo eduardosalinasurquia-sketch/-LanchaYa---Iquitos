@@ -3,6 +3,7 @@ import SalidaCard, { fechaSalida } from './components/SalidaCard';
 import { listarSalidas, listarDestinos, obtenerSalida, guardarSalida, eliminarSalida } from './services/api';
 import Filtros from './components/Filtros';
 import SalidaForm from './components/SalidaForm';
+import ConfirmarEliminar from './components/ConfirmarEliminar';
 
 export default function App() {
   const [salidas, setSalidas] = useState([]);
@@ -12,6 +13,7 @@ export default function App() {
   const [filtros, setFiltros] = useState({ destino: '', fecha: '', tipo: '' });
   const [destinos, setDestinos] = useState([]);
   const [formulario, setFormulario] = useState(null);
+  const [porEliminar, setPorEliminar] = useState(null);
   const [ocupado, setOcupado] = useState(false);
   const [aviso, setAviso] = useState('');
   const [errorAccion, setErrorAccion] = useState('');
@@ -26,9 +28,8 @@ export default function App() {
     setIntento(i => i + 1);
   }
   async function eliminar(salida) {
-    if (!window.confirm(`¿Eliminar la salida de ${salida.empresa} a ${salida.destino}? Esta acción no se puede deshacer.`)) return;
     setOcupado(true); setErrorAccion('');
-    try { await eliminarSalida(salida.id); setAviso('Salida eliminada.'); setIntento(i => i + 1); } catch (e) { setErrorAccion(e.message); } finally { setOcupado(false); }
+    try { await eliminarSalida(salida.id); setPorEliminar(null); setAviso('Salida eliminada.'); setIntento(i => i + 1); } finally { setOcupado(false); }
   }
 
   useEffect(() => {
@@ -67,11 +68,12 @@ export default function App() {
           {cargando ? <p className="estado" role="status">Cargando salidas…</p> : error ? (
             <div className="estado error" role="alert"><p>{error}</p><button onClick={() => setIntento(valor => valor + 1)}>Reintentar</button></div>
           ) : salidas.length === 0 ? <p className="estado" role="status">No hay salidas para los filtros seleccionados.</p> : (
-            <div className="salidas-grid">{salidas.map(salida => <SalidaCard key={salida.id} salida={salida} onEditar={editar} onEliminar={eliminar} ocupado={ocupado} />)}</div>
+            <div className="salidas-grid">{salidas.map(salida => <SalidaCard key={salida.id} salida={salida} onEditar={editar} onEliminar={setPorEliminar} ocupado={ocupado} />)}</div>
           )}
         </section>
       </main>
       {formulario !== null && <SalidaForm salida={formulario.id ? formulario : null} onGuardar={guardar} onCerrar={() => setFormulario(null)} />}
+      {porEliminar && <ConfirmarEliminar salida={porEliminar} onConfirmar={eliminar} onCerrar={() => setPorEliminar(null)} />}
       <footer className="contenedor">LanchaYa Iquitos · Empresas ficticias y precios referenciales para este proyecto.</footer>
     </>
   );

@@ -44,6 +44,11 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 }
 .estado.error { background: linear-gradient(135deg, #fff5ecef, #ffe6d7d9); border-color: #ab583b; color: #70301e; }
 .form-dialog { background: linear-gradient(135deg, #fffffff2, #f1f8e8e6); }
+.confirmar-dialog { width: min(520px, calc(100% - 24px)); }
+.modal-etiqueta { display: block; color: #476849; font-size: 11px; font-weight: 750; letter-spacing: 1.5px; margin-bottom: 10px; }
+.resumen-salida { padding: 18px; border: 1px solid #ffffffd9; border-radius: 12px; background: linear-gradient(135deg, #ffffffb3, #e3efce80); box-shadow: inset 0 1px 0 #fff; }
+.resumen-salida dd { color: #173b32; font-weight: 650; }
+.form-dialog::backdrop { -webkit-backdrop-filter: blur(5px); }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .filtros, .listado-cabecera, .estado, .form-dialog { background: #f4f8ee; }
   .filtros input, .filtros select, .form-grid input, .form-grid select, textarea { background: #fff; }

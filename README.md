@@ -33,7 +33,7 @@ Si aparece ERR_CONNECTION_REFUSED, comprobar que los procesos estén encendidos.
 
 - Registrar salida: completar empresa, destino, puerto, fecha y hora, tipo y precio; embarcación, duración y cupos son opcionales.
 - Editar: consulta el detalle actualizado y abre el formulario. Guardar persiste los cambios.
-- Eliminar: solicita confirmación antes de borrar permanentemente.
+- Eliminar: abre un modal liquid glass con el destino, empresa y horario antes de borrar permanentemente. Cancelar o Escape cierra la confirmación; durante la eliminación los controles se bloquean y los errores aparecen dentro del modal.
 - Filtrar: destino (obtenido de la API), fecha y tipo; los filtros se combinan. Limpiar filtros recupera el listado completo.
 
 Precio debe ser numérico y mayor que cero. Tipo acepta lancha, rapido o deslizador. Al registrar, la fecha no puede estar en el pasado. Los horarios se interpretan y muestran en Iquitos (UTC-05:00). Cupos debe ser entero no negativo y duración no negativa.
@@ -151,6 +151,7 @@ Colección Postman: `backend/LanchaYa.postman_collection.json`. Importar y ejecu
 - `backend/src`: arranque, rutas, controlador y datos JSON.
 - `backend/test`: pruebas de integración HTTP.
 - `frontend/src/components`: SalidaCard, Filtros y SalidaForm.
+- `frontend/src/components/Modal.jsx` y `ConfirmarEliminar.jsx`: diálogos de la aplicación con estilo compartido, foco contenido, devolución del foco y bloqueo del desplazamiento de fondo. Registro y edición muestran las validaciones en la aplicación, sin cuadros de alerta del navegador.
 - `frontend/src/services/api.js`: consumo de los seis endpoints con fetch.
 - `frontend/public`: logo, fondos y decoraciones.
 - `scripts`: arranque conjunto de desarrollo y servidor de producción.
