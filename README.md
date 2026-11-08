@@ -40,14 +40,15 @@ Precio debe ser numérico y mayor que cero. Tipo acepta lancha, rapido o desliza
 
 El alcance del manual excluye login y roles. La interfaz de administración es la misma aplicación y cualquier persona con acceso a la API puede modificar salidas. Para un uso administrativo restringido, el administrador del servidor debe limitar el acceso mediante red privada o autenticación en un proxy externo. El proyecto no implementa cuentas ni contraseñas de administrador.
 
-## Despliegue para el administrador del servidor
+## Despliegue para programadores
 
-Este apartado documenta cómo ejecutar la aplicación compilada en un servidor propio; subir a GitHub no publica un sitio web ni realiza un despliegue en la nube.
+Guía técnica para preparar, configurar y ejecutar la aplicación compilada en un servidor con Node.js. Subir el código a GitHub no publica la aplicación. Se usa un despliegue conjunto: Express entrega el build de React y la API desde el mismo puerto.
 
 1. Clonar el repositorio e instalar las dependencias como se indica arriba.
-2. Compilar el frontend y arrancar el servidor:
+2. Ejecutar las pruebas, compilar el frontend y arrancar el servidor:
 
 ```sh
+npm test
 npm run build
 npm start
 ```
@@ -68,6 +69,32 @@ PORT=8080 npm start
 ```
 
 Mantener el proceso con el supervisor del servidor y configurar un proxy HTTPS hacia ese puerto si se publica con dominio. En instalaciones restringidas, aplicar el control de acceso tanto a la interfaz como a `/api`.
+
+### Variables de configuración
+
+| Variable | Valor predeterminado | Uso |
+| --- | --- | --- |
+| `PORT` | `3000` | Puerto HTTP del backend en desarrollo y producción |
+| `SALIDAS_FILE` | `backend/src/data/salidas.json` | Ruta absoluta a un JSON existente para persistencia |
+| `VITE_API_URL` | `/api` | Base de la API, incorporada al compilar React |
+| `NODE_ENV` | `production` al usar `npm start` en la raíz | Habilita servir `frontend/dist` desde Express |
+
+El proxy de desarrollo de Vite apunta al puerto 3000. Si se cambia ese puerto durante el desarrollo, actualizar también `frontend/vite.config.js`.
+
+### Actualización de una instalación
+
+Usar `SALIDAS_FILE` fuera del checkout para separar los datos operativos del código. Respaldar ese archivo y detener el proceso antes de actualizar. Desde la raíz:
+
+```sh
+git pull --ff-only origin main
+npm --prefix backend ci
+npm --prefix frontend ci
+npm test
+npm run build
+npm start
+```
+
+Si el servicio se gestiona con un supervisor, reiniciarlo con ese supervisor en lugar de ejecutar una segunda instancia con `npm start`. Conservar las variables configuradas. Tras iniciar, comprobar que `/` carga la interfaz y `/api/salidas` devuelve HTTP 200 con un arreglo. Revisar registro, edición, filtros y eliminación con un registro de prueba.
 
 ### Persistencia y respaldo
 
