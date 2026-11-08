@@ -138,6 +138,15 @@ body::after { right: 0; border-left: 2px solid #e4d7ae; }
 .introduccion { min-height: 440px; padding: 58px 0 70px; color: #fff; text-shadow: 0 2px 5px #082c24, 0 0 18px #082c24; }
 .etiqueta { color: #edffc0; }
 .introduccion > p:last-child { color: #fff; font-weight: 500; }
+.introduccion h1 {
+  text-shadow: 0 1px 0 #c9dbcf, 0 2px 0 #6f9381, 0 3px 0 #315d49, 0 5px 7px #06291fe6, 0 12px 24px #031e18b3;
+}
+.introduccion .etiqueta {
+  text-shadow: 0 1px 0 #395e32, 0 3px 4px #06291f, 0 6px 12px #031e18cc;
+}
+.introduccion > p:last-child {
+  text-shadow: 0 1px 0 #496e58, 0 3px 5px #06291f, 0 7px 14px #031e18cc;
+}
 main.contenedor { padding-bottom: 28px; }
 section[aria-labelledby='listado-titulo'] { background: var(--papel); padding: 28px; border-radius: 16px; box-shadow: 0 12px 40px #062d2440; }
 .listado-cabecera > span, .origen, .embarcacion, dt, .card-bottom { color: #475e54; }
