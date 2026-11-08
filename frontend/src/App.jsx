@@ -49,8 +49,8 @@ export default function App() {
     <>
       <header className="cabecera">
         <div className="contenedor identidad">
-          <img className="logo" src="/logo-lanchaya.png" alt="Logo de LanchaYa Iquitos" width="76" height="76" />
-          <div className="marca">Lancha<span>Ya</span><span className="ciudad">Iquitos</span></div>
+          <img className="logo" src="/logo-lanchaya.png" alt="LanchaYa" width="112" height="112" />
+          <div className="nombre-ciudad" aria-label="Iquitos"><span>Iqui</span><span>tos</span></div>
         </div>
       </header>
       <main className="contenedor">

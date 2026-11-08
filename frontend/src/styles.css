@@ -59,7 +59,7 @@ body {
   background-color: #123f32;
   background-image: url('/fondo-mejorado.png');
   background-position: center top;
-  background-size: calc(100% - 96px) auto;
+  background-size: calc(100% - 128px) auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: var(--texto);
@@ -69,8 +69,8 @@ body::before, body::after {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 48px;
-  background: #123f32 url('/textil-amazonico.svg') center top / 48px 72px repeat-y;
+  width: 64px;
+  background: #123f32 url('/textil-amazonico.svg') center top / 64px 96px repeat-y;
   pointer-events: none;
   z-index: -1;
 }
@@ -95,6 +95,41 @@ body::after { right: 0; border-left: 2px solid #e4d7ae; }
 }
 .cabecera .identidad { position: relative; z-index: 1; }
 .cabecera .marca { text-shadow: 0 2px 5px #082c24; }
+.cabecera .identidad { gap: 24px; }
+.cabecera .logo {
+  width: 112px;
+  height: 112px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 0 2px #d5eb8399, 0 8px 18px #031b16b3, 0 2px 3px #031b16;
+}
+.nombre-ciudad {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: baseline;
+  font-size: clamp(30px, 2.8vw, 46px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  text-shadow: 0 2px 0 #082e24, 0 5px 8px #031b16, 0 10px 20px #031b16cc;
+}
+.nombre-ciudad::before {
+  content: '';
+  position: absolute;
+  inset: -16px -22px;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #062c22b3, transparent 72%);
+  pointer-events: none;
+}
+.nombre-ciudad > span:first-child { color: #fff; }
+.nombre-ciudad > span:last-child { color: #d5eb83; }
+@media (max-width: 600px) {
+  .cabecera .identidad { gap: 18px; }
+  .cabecera .logo { width: 88px; height: 88px; }
+  .nombre-ciudad { font-size: 34px; }
+}
 @media (max-width: 600px) {
   .cabecera { min-height: 116px; background-size: 100% 100%, cover; background-position: center; }
 }
