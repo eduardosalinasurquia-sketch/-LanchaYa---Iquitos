@@ -4,6 +4,7 @@ import { listarSalidas, listarDestinos, obtenerSalida, guardarSalida, eliminarSa
 import Filtros from './components/Filtros';
 import SalidaForm from './components/SalidaForm';
 import ConfirmarEliminar from './components/ConfirmarEliminar';
+import FaunaAnimada from './components/FaunaAnimada';
 
 export default function App() {
   const [salidas, setSalidas] = useState([]);
@@ -58,6 +59,7 @@ export default function App() {
           <p className="etiqueta">TRANSPORTE FLUVIAL · LORETO</p>
           <h1 id="titulo">Tu próximo destino<br />empieza en el río.</h1>
           <p>Consulta horarios, puertos y precios de las salidas desde Iquitos.</p>
+          <FaunaAnimada />
         </section>
         <section aria-labelledby="listado-titulo" aria-busy={cargando}>
           <div className="listado-cabecera"><h2 id="listado-titulo">Salidas fluviales</h2><span>Primero, las fechas más próximas</span></div>

@@ -1,0 +1,8 @@
+Recursos generados con la herramienta integrada image_gen, con fondo transparente.
+Archivos: tucan-realista.png y mono-realista.png.
+
+Prompt tucán:
+Create one photorealistic wildlife cutout asset for a rainforest website: full body toco toucan perched naturally on a short slender horizontal wooden branch with two small green leaves. Facing right. Real black feathers, white throat, detailed orange yellow beak, realistic feet grasping branch, gentle natural daylight. Entire bird and branch visible, generous transparent margin, centered composition. Isolated on a truly transparent background, no scenery, no text, no frame, no ground shadow. High quality photographic natural appearance, matching realistic Amazon rainforest decorative header. Not cartoon, not illustration.
+
+Prompt mono:
+Photorealistic wildlife website cutout: one small friendly Amazon squirrel monkey hanging with BOTH hands from a short slender horizontal woody liana at the TOP of the composition, full body entirely visible below branch, naturally bent legs, long tail curling gently right. Realistic soft golden olive fur, dark muzzle and white face, anatomically accurate monkey hands feet and tail, natural daylight, photographic fine detail. Small green leaves only on the ends of the short branch. Truly transparent background, no forest scenery, no ground, no text, no border. Subject centered with generous margin, branch horizontal near top for a subtle pendulum CSS animation around its grip. Not cartoon or illustration.
