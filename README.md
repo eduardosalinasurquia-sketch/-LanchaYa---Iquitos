@@ -130,8 +130,4 @@ Colección Postman: `backend/LanchaYa.postman_collection.json`. Importar y ejecu
 
 Diseño responsive con franjas textiles originales, fondo fijo, cabecera amazónica y prueba de liquid glass. El botón Registrar salida conserva un fondo verde sólido. Los estilos de vidrio están separados en `liquid-glass.css` y `glass-controls.css`; retirar sus imports en `main.jsx` permite desactivar esa prueba. Las imágenes generadas con IA incluyen archivos de texto con los prompts usados. No hay pagos ni venta de pasajes.
 
-## Entrega académica pendiente
 
-Integrantes: completar con los nombres reales del equipo.
-
-Grabar el video de 2 a 3 minutos mostrando CRUD y filtros. Preparar el ZIP sin node_modules con el nombre `S#_ProyectoFullStack_Apellidos` y los datos reales de sección y apellidos. No se ha realizado despliegue público ni se incluye un video generado.
