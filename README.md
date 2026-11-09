@@ -8,7 +8,6 @@ Aplicación full stack para consultar y administrar salidas fluviales desde Iqui
 Requisitos: Node.js 24, npm y Git.
 
 ```sh
-git clone https://github.com/eduardosalinasurquia-sketch/-LanchaYa---Iquitos.git
 cd -LanchaYa---Iquitos
 npm --prefix backend ci
 npm --prefix frontend ci
