@@ -1,5 +1,7 @@
 # LanchaYa Iquitos
 
+CARLOS EDUARDO SALINAS URQUIA
+
 Aplicación full stack para consultar y administrar salidas fluviales desde Iquitos. Backend Express 4, frontend React 18 con Vite y persistencia en archivo JSON. Probado con Node.js 24.19.0; el manual propone Node.js 20.
 
 Repositorio: https://github.com/eduardosalinasurquia-sketch/-LanchaYa---Iquitos
